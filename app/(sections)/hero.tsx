@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { BlueFlower, RedFlower, HeroIcon, CameraIcon } from "@/components/DecorativeSVG";
 import { HoverScale } from "@/components/MotionWrapper";
+import { ArrowDoodle, SwirlDoodle } from "@/components/HeadingDoodles";
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -110,9 +111,14 @@ export function Hero() {
                 >
                     <CameraIcon />
                 </motion.div>
-                <h2 className="font-display text-3xl md:text-4xl text-gray-800 dark:text-gray-200">
-                    Step into my digital home
-                </h2>
+                <div className="flex items-center gap-3">
+                    <SwirlDoodle className="hidden md:block" />
+                    <h2 className="font-display text-3xl md:text-4xl text-gray-800 dark:text-gray-200">
+                        Step into my digital home
+                    </h2>
+                    <SwirlDoodle flip className="hidden md:block" />
+                </div>
+                <ArrowDoodle className="mt-4" />
             </motion.div>
         </main>
     );

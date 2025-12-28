@@ -2,17 +2,32 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { MotionWrapper } from "@/components/MotionWrapper";
+import { FlowerMedal, FlowerIcon, flowerThemes, FlowerBloom } from "@/components/Flower";
+import { DoodleCaseStudies } from "@/components/DoodleCaseStudies";
+import { BracketDoodle, SparkleDoodle, UnderlineDoodle } from "@/components/HeadingDoodles";
 
 export function CaseStudies() {
     const shouldReduceMotion = useReducedMotion();
 
     return (
         <section id="experience" className="w-full px-4 md:px-8 py-20 max-w-6xl mx-auto relative">
+            {/* Animated doodle decorations */}
+            <DoodleCaseStudies />
+
             {/* Section header */}
             <MotionWrapper className="text-center mb-16">
-                <h2 className="font-display text-5xl md:text-6xl text-gray-900 dark:text-white mb-4">
-                    The toolkit I wield
-                </h2>
+                <div className="flex items-center justify-center gap-2 mb-4">
+                    <BracketDoodle side="left" className="hidden md:block" />
+                    <div className="flex items-center gap-2">
+                        <SparkleDoodle color="violet" className="hidden md:block" />
+                        <h2 className="font-display text-5xl md:text-6xl text-gray-900 dark:text-white">
+                            The toolkit I wield
+                        </h2>
+                        <SparkleDoodle color="amber" className="hidden md:block" />
+                    </div>
+                    <BracketDoodle side="right" className="hidden md:block" />
+                </div>
+                <UnderlineDoodle className="mx-auto mb-4" />
                 <p className="text-gray-500 dark:text-gray-400 text-lg font-light max-w-xl mx-auto">
                     Languages I speak fluently, and the battles I&apos;ve won
                 </p>
@@ -70,6 +85,13 @@ export function CaseStudies() {
                             transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         >
                             <div className="absolute -top-12 -right-12 w-32 h-32 bg-blue-500/15 rounded-full blur-2xl group-hover:bg-blue-500/25 transition-colors" />
+
+                            {/* Decorative flower bloom */}
+                            <FlowerBloom
+                                petalColor={flowerThemes.blue.petal}
+                                centerColor={flowerThemes.blue.center}
+                                className="-right-16 -top-16"
+                            />
 
                             <h3 className="font-display text-xl text-blue-600 dark:text-blue-400 mb-4">
                                 Competitive Programming
@@ -161,6 +183,13 @@ export function CaseStudies() {
                         >
                             <div className="absolute -top-12 -right-12 w-32 h-32 bg-rose-500/15 rounded-full blur-2xl group-hover:bg-rose-500/25 transition-colors" />
 
+                            {/* Decorative flower bloom */}
+                            <FlowerBloom
+                                petalColor={flowerThemes.rose.petal}
+                                centerColor={flowerThemes.rose.center}
+                                className="-right-16 -top-16"
+                            />
+
                             <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold uppercase tracking-wider text-rose-400 bg-rose-500/10 border border-rose-500/30 rounded-full">
                                 Education
                             </span>
@@ -185,15 +214,23 @@ export function CaseStudies() {
                         >
                             <div className="absolute -top-12 -left-12 w-32 h-32 bg-amber-500/15 rounded-full blur-2xl group-hover:bg-amber-500/25 transition-colors" />
 
-                            <h3 className="font-display text-xl text-amber-600 dark:text-amber-400 mb-4">
-                                🏆 Awards & Hackathons
+                            {/* Decorative flower bloom */}
+                            <FlowerBloom
+                                petalColor={flowerThemes.amber.petal}
+                                centerColor={flowerThemes.amber.center}
+                                className="-left-16 -top-16"
+                            />
+
+                            <h3 className="font-display text-xl text-amber-600 dark:text-amber-400 mb-4 flex items-center gap-2">
+                                <FlowerIcon petalColor={flowerThemes.amber.petal} centerColor={flowerThemes.amber.center} />
+                                Awards & Hackathons
                             </h3>
                             <div className="space-y-2">
                                 {[
-                                    { emoji: "🥇", text: "Gold - Inter IIT Tech Meet 13.0", highlight: true },
-                                    { emoji: "🌍", text: "Global Creative Prize - WalletConnect", highlight: false },
-                                    { emoji: "🟣", text: "Quadratic Prize - Coinbase", highlight: false },
-                                    { emoji: "🏅", text: "Top 3 - ScrollHacks Hackathon", highlight: false },
+                                    { type: "gold" as const, text: "Gold - Inter IIT Tech Meet 13.0", highlight: true },
+                                    { type: "gold" as const, text: "Global Creative Prize - WalletConnect", highlight: false },
+                                    { type: "gold" as const, text: "Quadratic Prize - Coinbase", highlight: false },
+                                    { type: "silver" as const, text: "Top 3 - ScrollHacks Hackathon", highlight: false },
                                 ].map((award, i) => (
                                     <div
                                         key={i}
@@ -203,7 +240,7 @@ export function CaseStudies() {
                                                 : "bg-amber-500/5 border border-amber-500/10 hover:bg-amber-500/10"
                                             }`}
                                     >
-                                        <span className="text-lg">{award.emoji}</span>
+                                        <FlowerMedal type={award.type} className="flex-shrink-0" />
                                         <span className="text-gray-700 dark:text-gray-300 text-sm font-medium">{award.text}</span>
                                     </div>
                                 ))}
@@ -223,6 +260,13 @@ export function CaseStudies() {
                             transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         >
                             <div className="absolute -bottom-10 -right-10 w-28 h-28 bg-cyan-500/15 rounded-full blur-2xl group-hover:bg-cyan-500/25 transition-colors" />
+
+                            {/* Decorative flower bloom */}
+                            <FlowerBloom
+                                petalColor={flowerThemes.cyan.petal}
+                                centerColor={flowerThemes.cyan.center}
+                                className="-right-16 -bottom-16"
+                            />
 
                             <h3 className="font-display text-xl text-cyan-600 dark:text-cyan-400 mb-4">
                                 Clubs & Societies
@@ -253,21 +297,29 @@ export function CaseStudies() {
                         >
                             <div className="absolute -top-10 -right-10 w-28 h-28 bg-fuchsia-500/15 rounded-full blur-2xl group-hover:bg-fuchsia-500/25 transition-colors" />
 
-                            <h3 className="font-display text-xl text-fuchsia-600 dark:text-fuchsia-400 mb-4">
-                                🎭 Cultural Achievements
+                            {/* Decorative flower bloom */}
+                            <FlowerBloom
+                                petalColor={flowerThemes.fuchsia.petal}
+                                centerColor={flowerThemes.fuchsia.center}
+                                className="-right-16 -top-16"
+                            />
+
+                            <h3 className="font-display text-xl text-fuchsia-600 dark:text-fuchsia-400 mb-4 flex items-center gap-2">
+                                <FlowerIcon petalColor={flowerThemes.fuchsia.petal} centerColor={flowerThemes.fuchsia.center} />
+                                Cultural Achievements
                             </h3>
                             <div className="grid grid-cols-2 gap-2">
                                 {[
-                                    { text: "Inter-IIT Street Play", medal: "🥇" },
-                                    { text: "Spring Fest Street Play", medal: "🥇" },
-                                    { text: "Short Film Making", medal: "🥈" },
-                                    { text: "Standup Comedy", medal: "🥈" },
+                                    { text: "Inter-IIT Street Play", medal: "gold" as const },
+                                    { text: "Spring Fest Street Play", medal: "gold" as const },
+                                    { text: "Short Film Making", medal: "silver" as const },
+                                    { text: "Standup Comedy", medal: "silver" as const },
                                 ].map((achievement, i) => (
                                     <div
                                         key={i}
                                         className="flex items-center gap-2 px-3 py-2.5 bg-fuchsia-500/10 rounded-xl text-gray-700 dark:text-gray-300 text-sm border border-fuchsia-500/20"
                                     >
-                                        <span>{achievement.medal}</span>
+                                        <FlowerMedal type={achievement.medal} className="flex-shrink-0" />
                                         <span>{achievement.text}</span>
                                     </div>
                                 ))}

@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import { FlowerCursor } from "@/components/FlowerCursor";
 import { SEO } from "@/components/SEO";
 import { baseMetadata } from "@/lib/seo";
@@ -66,7 +65,6 @@ export default function RootLayout({
                 <FlowerCursor />
                 <Navbar />
                 {children}
-                <Footer />
             </body>
         </html>
     );

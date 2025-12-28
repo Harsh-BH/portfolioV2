@@ -18,11 +18,11 @@ export function Navbar() {
                 {/* Logo with scribble hover effect */}
                 <Link
                     href="/"
-                    className="text-2xl font-display text-primary scribble-hover flex flex-col items-center leading-none"
+                    className="text-2xl font-display text-primary scribble-hover flex flex-col items-center leading-tight"
                     aria-label="Go to homepage"
                 >
                     <motion.span
-                        className="block translate-y-1"
+                        className="block"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
@@ -30,7 +30,7 @@ export function Navbar() {
                         H a r s h
                     </motion.span>
                     <motion.span
-                        className="block -translate-y-1"
+                        className="block"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5, delay: 0.1 }}

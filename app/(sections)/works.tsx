@@ -2,6 +2,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { StaggerContainer, StaggerItem } from "@/components/MotionWrapper";
+import { FlowerBloom, FlowerMedal, flowerThemes } from "@/components/Flower";
+import { DoodleBackground } from "@/components/DoodleBackground";
 
 export function Works() {
     const shouldReduceMotion = useReducedMotion();
@@ -9,9 +11,12 @@ export function Works() {
     return (
         <section
             id="projects"
-            className="w-full px-4 md:px-8 pb-20 max-w-7xl mx-auto"
+            className="w-full px-4 md:px-8 pb-20 max-w-7xl mx-auto relative"
         >
-            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Animated doodle decorations */}
+            <DoodleBackground />
+
+            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
                 {/* Card 1: ScanX */}
                 <StaggerItem className="lg:row-span-2">
                     <motion.a
@@ -29,6 +34,13 @@ export function Works() {
                         {/* Corner glow effect */}
                         <div className="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl group-hover:bg-blue-500/30 transition-colors duration-500" />
                         <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl" />
+
+                        {/* Decorative flower bloom */}
+                        <FlowerBloom
+                            petalColor={flowerThemes.blue.petal}
+                            centerColor={flowerThemes.blue.center}
+                            className="-right-16 -top-16"
+                        />
 
                         <div className="relative z-10">
                             <span className="inline-block px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-400 bg-blue-500/10 border border-blue-500/30 rounded-full backdrop-blur-sm">
@@ -72,7 +84,15 @@ export function Works() {
                     >
                         <div className="absolute -top-10 -right-10 w-24 h-24 bg-amber-500/20 rounded-full blur-2xl group-hover:bg-amber-500/30 transition-colors" />
 
-                        <div className="text-5xl mb-3">🥇</div>
+                        {/* Golden flower bloom background */}
+                        <FlowerBloom
+                            petalColor={flowerThemes.amber.petal}
+                            centerColor={flowerThemes.amber.center}
+                            className="-right-12 -top-12"
+                        />
+
+                        {/* Golden flower medal replacing 🥇 emoji */}
+                        <FlowerMedal type="gold" className="mb-3" />
                         <h3 className="font-display text-2xl text-gray-900 dark:text-white mb-1 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                             Gold Medal
                         </h3>
@@ -100,7 +120,14 @@ export function Works() {
                     >
                         <div className="absolute -top-10 -left-10 w-24 h-24 bg-cyan-500/20 rounded-full blur-2xl group-hover:bg-cyan-500/30 transition-colors" />
 
-                        <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center text-white font-display text-xl mb-3 shadow-lg shadow-cyan-500/25">
+                        {/* Decorative flower bloom */}
+                        <FlowerBloom
+                            petalColor={flowerThemes.cyan.petal}
+                            centerColor={flowerThemes.cyan.center}
+                            className="-left-12 -top-12"
+                        />
+
+                        <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center text-white font-display text-xl mb-3 shadow-lg shadow-cyan-500/25 relative z-10">
                             W
                         </div>
                         <h3 className="font-display text-xl text-gray-900 dark:text-white mb-1 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
@@ -127,6 +154,13 @@ export function Works() {
                     >
                         <div className="absolute -top-20 -right-20 w-48 h-48 bg-fuchsia-500/15 rounded-full blur-3xl group-hover:bg-fuchsia-500/25 transition-colors" />
                         <div className="absolute -bottom-10 right-20 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl" />
+
+                        {/* Decorative flower bloom */}
+                        <FlowerBloom
+                            petalColor={flowerThemes.fuchsia.petal}
+                            centerColor={flowerThemes.fuchsia.center}
+                            className="-right-16 -top-16"
+                        />
 
                         <div className="relative z-10 max-w-md">
                             <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold uppercase tracking-wider text-fuchsia-400 bg-fuchsia-500/10 border border-fuchsia-500/30 rounded-full backdrop-blur-sm">
@@ -162,6 +196,13 @@ export function Works() {
                     >
                         <div className="absolute -top-20 -left-20 w-48 h-48 bg-rose-500/15 rounded-full blur-3xl group-hover:bg-rose-500/25 transition-colors" />
                         <div className="absolute -bottom-10 left-40 w-32 h-32 bg-orange-500/10 rounded-full blur-2xl" />
+
+                        {/* Decorative flower bloom */}
+                        <FlowerBloom
+                            petalColor={flowerThemes.rose.petal}
+                            centerColor={flowerThemes.rose.center}
+                            className="-left-16 -top-16"
+                        />
 
                         <div className="relative z-10 max-w-lg">
                             <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold uppercase tracking-wider text-rose-400 bg-rose-500/10 border border-rose-500/30 rounded-full backdrop-blur-sm">
@@ -200,6 +241,13 @@ export function Works() {
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
                         <div className="absolute -top-12 -right-12 w-32 h-32 bg-violet-500/20 rounded-full blur-2xl group-hover:bg-violet-500/30 transition-colors" />
+
+                        {/* Decorative flower bloom */}
+                        <FlowerBloom
+                            petalColor={flowerThemes.violet.petal}
+                            centerColor={flowerThemes.violet.center}
+                            className="-right-12 -top-12"
+                        />
 
                         <div className="relative z-10">
                             <span className="inline-block px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-violet-400 bg-violet-500/10 border border-violet-500/30 rounded-full backdrop-blur-sm">
