@@ -1,0 +1,114 @@
+/* Material Icons font import - must be at top */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #EAEAEA;
+    --foreground: #171717;
+  }
+
+  .dark {
+    --background: #1a1a1a;
+    --foreground: #ededed;
+  }
+
+  /* Yellow text selection highlight */
+  ::selection {
+    background-color: #FBBF24;
+    color: #000000;
+  }
+
+  ::-moz-selection {
+    background-color: #FBBF24;
+    color: #000000;
+  }
+}
+
+@layer components {
+
+  /* Scribble hover animation */
+  .scribble-hover:hover {
+    animation: scribble 0.3s infinite;
+  }
+
+  /* Flower spin animation */
+  .flower-spin {
+    animation: spin 20s linear infinite;
+  }
+
+  .flower-spin-reverse {
+    animation: spin 50s linear infinite reverse;
+  }
+}
+
+@layer utilities {
+
+  /* Smooth transitions for theme switching */
+  .transition-theme {
+    @apply transition-colors duration-300;
+  }
+}
+
+/* Hide scrollbar but allow scrolling */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background-light dark:ring-offset-background-dark;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Hide default cursor for custom flower cursor */
+*,
+*::before,
+*::after {
+  cursor: none !important;
+}
+
+a,
+button,
+[role="button"],
+input,
+textarea,
+select {
+  cursor: none !important;
+}
+
+/* Restore cursor on reduced motion or touch devices */
+@media (prefers-reduced-motion: reduce),
+(hover: none) {
+
+  *,
+  *::before,
+  *::after,
+  a,
+  button,
+  [role="button"],
+  input,
+  textarea,
+  select {
+    cursor: auto !important;
+  }
+}
